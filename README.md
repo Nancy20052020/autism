@@ -1,61 +1,71 @@
-Autism Detection Website
-Overview
-The Autism Detection Website is a platform that evaluates the likelihood of autism in individuals based on their attention span while viewing specific images. The site features a login/signup system for user authentication and securely manages user information. The analysis is non-invasive and leverages user behavior to generate results.
+#**Autism Detection Website**
+##Overview
+The Autism Detection Website is a platform designed to analyze user attention spans on specific images to assess the likelihood of autism. It features a secure login/signup system for personalized user interactions and provides insightful results based on user behavior.
 
-Features
-User Authentication:
-Includes a signup and login system to manage user accounts. The application ensures secure handling of user data with features like password encryption and session management.
+##Features
+###User Authentication
 
-Autism Detection:
-The detection process involves presenting users with two sets of images. The system records the time spent focusing on each image and analyzes these attention spans to assess the likelihood of autism.
+Includes a secure signup and login system.
+Ensures data privacy with encrypted passwords and session management.
+Autism Detection Mechanism
 
-Result Analysis:
-The application uses predefined thresholds to analyze attention data. Results are displayed to users in an easy-to-understand format, categorizing the likelihood of autism as high, low, or none.
+Displays two sets of images to users.
+Records time spent focusing on each image to derive attention span insights.
+Result Analysis
 
-User-Friendly Design:
-A clean and intuitive interface guides users through the test, ensuring accessibility for individuals of all backgrounds.
+##Uses predefined thresholds to analyze data and categorize autism likelihood into:
+->Low
+->Moderate
+->High
+-.User-Friendly Design
 
-Database Integration:
-The website securely stores user data and test results in a database, enabling record keeping and personalized experiences.
+#Features an intuitive and accessible interface for all users.
+#Database Integration
 
-Scalable Infrastructure:
-Built using modern web technologies, the website is designed for both local and production environments, ensuring flexibility and reliability.
+#Stores user data and test results securely for personalized analysis.
+#Scalable Infrastructure
 
+##Built for both local and production environments, ensuring flexibility and reliability.
 How It Works
-User Interaction:
-Users sign up or log in to begin the test. The application tracks their behavior during the test.
+User Interaction
+Users sign up or log in to start the test.
 
-Image Test Rounds:
-Two rounds of tests are conducted, each displaying a pair of images. The application measures the user's attention span for each image.
+Note: New users must complete the signup process before accessing the test.
 
-Data Analysis:
-The attention spans are compared against predefined benchmarks to derive insights.
+#Image Test Rounds
 
-Result Presentation:
-The final report is displayed, summarizing the user's likelihood of autism based on the collected data.
+Two rounds of tests are conducted.
+Users are shown images and their attention spans are recorded automatically.
+Data Analysis
+The system evaluates attention spans and compares them against predefined scientific benchmarks.
+
+Result Presentation
+Results are displayed in a comprehensive report, highlighting the user's likelihood of autism.
 
 Usage Flow
-Accessing the Website:
-Users navigate to the site and sign up or log in to their accounts.
+Accessing the Website
+Navigate to the website and log in to begin.
 
-Taking the Test:
-After logging in, users can start the test, where they are shown images for evaluation.
+Taking the Test
+After authentication, users proceed with the two-round test.
 
-Viewing Results:
-Once the test is completed, users receive a detailed analysis of their attention span data.
+Viewing Results
+Upon completion, users receive a detailed analysis of their attention span data.
 
-Next Steps:
-Users can use the insights for further consultation or revisit the test as needed.
+Revisiting the Test
+Users can repeat the test to track their attention span behavior over time.
 
 Benefits
-Non-Invasive:
-The system does not require direct interaction or physical tests, making it safe and user-friendly.
+Non-Invasive Testing
 
-Accessible:
-The website is designed to be inclusive and straightforward, ensuring usability for a wide audience.
+The system does not require direct interaction or physical tests, ensuring a safe and convenient experience.
 
-Data-Driven Insights:
-By analyzing attention spans, the application provides scientifically backed indications of autism likelihood.
+Data Security
+Ensures that user results and data are securely stored and only accessible to authorized users.
 
-Deployment and Maintenance
-The website is built with scalability in mind, allowing it to run locally or be deployed to a production environment. Regular updates and maintenance ensure the platform remains secure and efficient.
+
+
+
+
+
+
