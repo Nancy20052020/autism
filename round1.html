@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round 1</title>
+    <script src="https://webgazer.cs.brown.edu/webgazer.js"></script>
+    <script>
+        let imageTimers = { image1: 0, image2: 0 }; // Time spent on each image
+
+        function startEyeTracking() {
+            // Initialize WebGazer
+            webgazer.setGazeListener((data, timestamp) => {
+                if (data) {
+                    const x = data.x; // Gaze x-coordinate
+                    const y = data.y; // Gaze y-coordinate
+
+                    const image1 = document.getElementById("image1").getBoundingClientRect();
+                    const image2 = document.getElementById("image2").getBoundingClientRect();
+
+                    // Check if gaze is on Image 1
+                    if (x > image1.left && x < image1.right && y > image1.top && y < image1.bottom) {
+                        imageTimers.image1 += 0.1; // Update Image 1 time
+                    }
+
+                    // Check if gaze is on Image 2
+                    if (x > image2.left && x < image2.right && y > image2.top && y < image2.bottom) {
+                        imageTimers.image2 += 0.1; // Update Image 2 time
+                    }
+                }
+            }).begin();
+
+            // Reposition the camera feed
+            const webgazerVideoFeed = document.getElementById("webgazerVideoFeed");
+            if (webgazerVideoFeed) {
+                webgazerVideoFeed.style.position = "fixed";
+                webgazerVideoFeed.style.top = "10px"; // Top of the screen
+                webgazerVideoFeed.style.right = "10px"; // Right corner
+                webgazerVideoFeed.style.width = "150px"; // Small feed size
+                webgazerVideoFeed.style.zIndex = "1000"; // Ensure it's above other elements
+            }
+        }
+
+        function stopEyeTracking() {
+            webgazer.end();
+        }
+
+        function submitTimes() {
+            stopEyeTracking();
+
+            fetch('/submit_times', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    round: "round1",
+                    image1_time: imageTimers.image1.toFixed(2),
+                    image2_time: imageTimers.image2.toFixed(2)
+                })
+            }).then(res => res.json())
+              .then(data => {
+                  alert("Round 1 Result: " + data.result);
+                  window.location.href = '{{ url_for("round2") }}';
+              });
+        }
+
+        window.onload = () => {
+            startEyeTracking();
+        };
+
+        window.onbeforeunload = () => {
+            stopEyeTracking();
+        };
+    </script>
+</head>
+<body>
+    <h1>Round 1</h1>
+    <img id="image1" src="static/pic5.jpg" alt="Image 1" style="width: 45%; margin-right: 5%;">
+    <img id="image2" src="static/pic3.jpg" alt="Image 2" style="width: 45%;">
+    <br><br>
+    <button onclick="submitTimes()">Submit</button>
+</body>
+</html>
