@@ -1,4 +1,4 @@
-from PIL import Image
+
 from flask import Flask, render_template, request, redirect, url_for, session, flash, jsonify, Response
 import mysql.connector
 from mysql.connector import Error
@@ -10,12 +10,10 @@ from flask_wtf.csrf import CSRFProtect
 from wtforms import StringField, PasswordField, EmailField
 from wtforms.validators import DataRequired, Email
 import cv2
-import numpy as np
 import os
 import time
 from datetime import datetime
 from flask import send_file
-import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -267,3 +265,5 @@ def reset_password(token):
 
     return render_template('reset_password.html', form=form)
 
+if __name__ == '__main__':
+    app.run(debug=True)
