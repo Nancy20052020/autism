@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Autism Detection</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background: #f3f4f6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #2c3e50;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .navbar ul {
+            list-style: none;
+        }
+
+        .navbar li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        .navbar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #1abc9c;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(to right, #1abc9c, #16a085);
+            color: #fff;
+        }
+
+        .hero-section h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Flash Messages */
+        .flash-messages {
+            list-style: none;
+            padding: 0;
+            margin: 20px auto;
+            text-align: center;
+            max-width: 400px;
+        }
+        .flash-messages li {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+        .flash-messages .error {
+            background-color: #e74c3c;
+            color: white;
+        }
+        .flash-messages .success {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        /* Sign-Up Form */
+        .signup-form-container {
+            max-width: 400px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-form-container label {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .signup-form-container input[type="text"],
+        .signup-form-container input[type="password"],
+        .signup-form-container input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .signup-form-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #1abc9c;
+            border: none;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .signup-form-container button:hover {
+            background-color: #16a085;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#what-we-offer">What We Offer</a></li>
+            <li><a href="#what-is-autism">What is Autism?</a></li>
+            <li><a href="#start-test">Start Test</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1>Sign Up</h1>
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Sign-Up Form -->
+    <div class="signup-form-container">
+        <form action="{{ url_for('signup') }}" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Log in here</a></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Autism Detection. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
