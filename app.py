@@ -28,15 +28,15 @@ logger = logging.getLogger(__name__)
 db_config = {
     'host': 'localhost',
     'user': 'root',
-    'port': '3306',
-    'password': '20052020',
+    'port': 'port_no',
+    'password': 'your_password',
     'database': 'autism_detection'
 }
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
-app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = 'nancy2005nov@gmail.com'
-app.config['MAIL_PASSWORD'] = 'ntgo jlmo jffs geml'
+app.config['MAIL_PORT'] = port_no.
+app.config['MAIL_USERNAME'] = 'your_gmail'
+app.config['MAIL_PASSWORD'] = 'mail_password'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USE_SSL'] = False
 
@@ -575,4 +575,5 @@ def reset_password(token):
 
 
 if __name__ == '__main__':
+
     app.run(debug=True)
